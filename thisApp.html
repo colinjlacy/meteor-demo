@@ -3,12 +3,23 @@
 </head>
 
 <body>
-  <h1>Welcome to Meteor!</h1>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
 
-  {{> hello}}
+        <h1>Welcome to Meteor!</h1>
+        <hr>
+
+        {{> hello}}
+
+      </div>
+    </div>
+  </div>
 </body>
 
 <template name="hello">
-  <button>Click Me</button>
+  <button id="inc" class="btn btn-primary">Click Me</button>
+  <button id="clear" class="btn btn-danger">Clear</button>
+  <hr>
   <p>You've pressed the button {{counter}} times.</p>
 </template>

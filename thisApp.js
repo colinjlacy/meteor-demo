@@ -8,17 +8,24 @@ if (Meteor.isClient) {
   });
 
   Template.hello.events({
-    'click button': function () {
+    'click #inc': function () {
       // increment the counter when button is clicked
       Clicks.insert({'clickNo': function () {
         return Clicks.find().count() + 1;
       }});
+    },
+    'click #clear': function () {
+      Meteor.call("clearCount");
     }
   });
 }
 
 if (Meteor.isServer) {
   Meteor.startup(function () {
-    // code to run on server at startup
+    Meteor.methods({
+      "clearCount": function() {
+        Clicks.remove({});
+      }
+    })
   });
 }
